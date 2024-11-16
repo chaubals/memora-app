@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { useNavigate } from "react-router-dom";
-import './HomePage.css';
+import "./CSS/HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate(); //Initialize the navigate function
@@ -12,16 +12,22 @@ const HomePage = () => {
     navigate(`/flashcards/${encodedTopic}`); //Navigate to the flashcards page
   };
 
-  const topics = ['DSA', 'OOP', 'Java', 'C#'];
+  const topics = ["DSA", "OOP", "Java", "C#"];
 
   return (
     <div className="homepage">
       <header className="app-header">
-        <h2>Welcome to Memora. This is the Homepage</h2>
+        <center>Welcome to Memora. This is the Homepage</center>
       </header>
       <div className="card-container">
         {topics.map((topic) => (
-          <Card key={topic} title={topic} onClick={() => { handleCardClick(topic) }} />
+          <Card
+            key={topic}
+            title={topic}
+            onClick={() => {
+              handleCardClick(topic);
+            }}
+          />
         ))}
       </div>
     </div>
@@ -29,4 +35,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

@@ -1,5 +1,4 @@
-/* Demo flashcard styling */
-.button-back {
+/* .button-back {
   background-color: #3498db;
   color: white;
   border: none;
@@ -11,9 +10,9 @@
 
 .flashcard-container {
   display: grid;
-  grid-template-columns: repeat(2, auto); /* 2 columns for two flashcards */
-  justify-content: center; /* Center the grid container */
-  gap: 50px; /* Space between the cards */
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 50px;
 }
 
 .button-back:hover{
@@ -26,8 +25,8 @@
   background-color: #e0e0e0;
   color: #333;
   display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   margin: 20px auto;
@@ -37,27 +36,27 @@
 }
 
 .flashcard-demo p {
-  margin: 0; /* Remove extra spacing */
+  margin: 0;
 }
 
-/* Modal styling */
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Black transparent background */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Close button above the modal content */
+
 .button-close-modal {
   position: absolute;
-  top: 30px; /* Positioned above the modal */
-  left: 50%; /* Center horizontally */
+  top: 30px;
+  left: 50%;
   transform: translateX(-50%);
   padding: 10px 15px;
   background-color: #e6540b;
@@ -72,25 +71,22 @@
   background-color: #cf1b1b;
 }
 
-/* Navigation buttons outside the flashcard */
-/* Navigation buttons outside the flashcard */
 .button-navigation {
   position: absolute;
   top: 50%;
-  width: calc(100% + 100px); /* Expands width to ensure buttons are outside the modal */
+  width: calc(100% + 100px);
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
-  padding: 0 450px; /* Space from the left and right of the modal-content */
+  padding: 0 450px;
 }
 
 .button-navigation-previous {
-  margin-right: 10px; /* Adjust this value to control distance from left side */
+  margin-right: 10px;
 }
 
 .button-navigation-next {
-  margin-left: -400px; /* Adjust this value to control distance from right side */
-  /* Ensures distance matches `prev-button` */
+  margin-left: -400px;
 }
 
 .button-navigation button {
@@ -107,7 +103,6 @@
   background-color: #2980b9;
 }
 
-/* Flashcard styling within modal */
 .flashcard {
   display: flex;
   background-color: #f4f4f4;
@@ -123,7 +118,7 @@
   margin-bottom: 20px;
 }
 
-/* Show Flashcards button at the bottom of the demo card */
+
 .button-show-modal {
   margin-top: auto;
   background-color: #3498db;
@@ -156,4 +151,13 @@
 
 .button-show-modal:hover {
   background-color:#0b4a74;
+} */
+
+.card-demo {
+  width: 12rem;
+  height: 20rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

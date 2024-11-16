@@ -1,30 +1,122 @@
-{
-  "DSA": [
-    { "question": "What is a binary search tree?", "answer": "A binary tree where each node has at most two children, and the left subtree of a node contains only nodes with values less than the node’s key, while the right subtree only contains nodes with values greater than the node’s key." },
-    { "question": "Explain the time complexity of quicksort.", "answer": "Quicksort has an average time complexity of O(n log n) but can degrade to O(n^2) if the pivot selection is poor (e.g., always selecting the largest or smallest element as pivot in an already sorted array)." },
-    { "question": "What is dynamic programming?", "answer": "Dynamic programming is an optimization technique that solves complex problems by breaking them down into simpler subproblems and storing the results of these subproblems to avoid redundant calculations." },
-    { "question": "Describe a stack data structure.", "answer": "A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, where elements are added and removed from the same end, called the top." },
-    { "question": "What is a graph traversal algorithm?", "answer": "Graph traversal algorithms are methods to visit nodes in a graph in a specific order, such as Depth-First Search (DFS) and Breadth-First Search (BFS)." }
-  ],
-  "OOP": [
-    { "question": "What is polymorphism?", "answer": "Polymorphism is the ability of a function, object, or method to behave in different ways based on the context, such as method overloading and method overriding." },
-    { "question": "Define encapsulation in OOP.", "answer": "Encapsulation is the concept of bundling data and methods that operate on the data within a single unit, typically a class, and restricting access to some of the object's components." },
-    { "question": "What is inheritance?", "answer": "Inheritance is a mechanism where a new class (derived class) inherits properties and behavior (methods) from an existing class (base class)." },
-    { "question": "Explain the concept of abstraction.", "answer": "Abstraction is the concept of hiding the complex reality while exposing only the necessary parts, making it easier for the user to understand and interact with the system." },
-    { "question": "What is a constructor?", "answer": "A constructor is a special method used to initialize objects when they are created, often setting initial values for object attributes." }
-  ],
-  "Java": [
-    { "question": "What is the Java Virtual Machine (JVM)?", "answer": "The JVM is a virtual machine that allows Java programs to run on any device or operating system by providing an execution environment." },
-    { "question": "Explain the concept of garbage collection in Java.", "answer": "Garbage collection is the process by which Java programs perform automatic memory management, reclaiming memory occupied by objects no longer in use." },
-    { "question": "What is the difference between == and .equals() in Java?", "answer": "In Java, '==' checks for reference equality (whether two references point to the same memory location), while '.equals()' checks for value equality." },
-    { "question": "What is an interface in Java?", "answer": "An interface is a reference type in Java, similar to a class, that can contain only abstract methods and static constants and allows classes to implement multiple forms of behavior." },
-    { "question": "What is multithreading?", "answer": "Multithreading is a Java feature that allows concurrent execution of two or more threads to maximize CPU utilization." }
-  ],
-  "C#": [
-    { "question": "What is the difference between an interface and an abstract class in C#?", "answer": "An abstract class can have both implemented methods and abstract methods, while an interface only declares methods without implementation. A class can implement multiple interfaces but only inherit one abstract class." },
-    { "question": "Explain the purpose of delegates in C#.", "answer": "Delegates in C# are type-safe pointers to methods, allowing methods to be passed as parameters and facilitating callback mechanisms." },
-    { "question": "What is LINQ in C#?", "answer": "LINQ (Language-Integrated Query) is a set of features in C# that allows querying data from different data sources (like collections, SQL databases) in a more readable and concise syntax." },
-    { "question": "What is garbage collection in C#?", "answer": "Garbage collection in C# is an automatic memory management feature that frees memory occupied by objects that are no longer accessible." },
-    { "question": "What are properties in C#?", "answer": "Properties are members that provide a flexible mechanism to read, write, or compute the values of private fields in C#." }
-  ]
-}
+[
+  {
+    "topic": "DSA",
+    "id": "1",
+    "question": "What is a binary search tree?",
+    "answer": "A binary tree where each node has at most two children, and the left subtree of a node contains only nodes with values less than the node’s key, while the right subtree only contains nodes with values greater than the node’s key."
+  },
+  {
+    "topic": "DSA",
+    "id": "2",
+    "question": "Explain the time complexity of quicksort.",
+    "answer": "Quicksort has an average time complexity of O(n log n) but can degrade to O(n^2) if the pivot selection is poor (e.g., always selecting the largest or smallest element as pivot in an already sorted array)."
+  },
+  {
+    "topic": "DSA",
+    "id": "3",
+    "question": "What is dynamic programming?",
+    "answer": "Dynamic programming is an optimization technique that solves complex problems by breaking them down into simpler subproblems and storing the results of these subproblems to avoid redundant calculations."
+  },
+  {
+    "topic": "DSA",
+    "id": "4",
+    "question": "Describe a stack data structure.",
+    "answer": "A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, where elements are added and removed from the same end, called the top."
+  },
+  {
+    "topic": "DSA",
+    "id": "5",
+    "question": "What is a graph traversal algorithm?",
+    "answer": "Graph traversal algorithms are methods to visit nodes in a graph in a specific order, such as Depth-First Search (DFS) and Breadth-First Search (BFS)."
+  },
+  {
+    "topic": "OOP",
+    "id": "1",
+    "question": "What is polymorphism?",
+    "answer": "Polymorphism is the ability of a function, object, or method to behave in different ways based on the context, such as method overloading and method overriding."
+  },
+  {
+    "topic": "OOP",
+    "id": "2",
+    "question": "Define encapsulation in OOP.",
+    "answer": "Encapsulation is the concept of bundling data and methods that operate on the data within a single unit, typically a class, and restricting access to some of the object's components."
+  },
+  {
+    "topic": "OOP",
+    "id": "3",
+    "question": "What is inheritance?",
+    "answer": "Inheritance is a mechanism where a new class (derived class) inherits properties and behavior (methods) from an existing class (base class)."
+  },
+  {
+    "topic": "OOP",
+    "id": "4",
+    "question": "Explain the concept of abstraction.",
+    "answer": "Abstraction is the concept of hiding the complex reality while exposing only the necessary parts, making it easier for the user to understand and interact with the system."
+  },
+  {
+    "topic": "OOP",
+    "id": "5",
+    "question": "What is a constructor?",
+    "answer": "A constructor is a special method used to initialize objects when they are created, often setting initial values for object attributes."
+  },
+  {
+    "topic": "Java",
+    "id": "1",
+    "question": "What is the Java Virtual Machine (JVM)?",
+    "answer": "The JVM is a virtual machine that allows Java programs to run on any device or operating system by providing an execution environment."
+  },
+  {
+    "topic": "Java",
+    "id": "2",
+    "question": "Explain the concept of garbage collection in Java.",
+    "answer": "Garbage collection is the process by which Java programs perform automatic memory management, reclaiming memory occupied by objects no longer in use."
+  },
+  {
+    "topic": "Java",
+    "id": "3",
+    "question": "What is the difference between == and .equals() in Java?",
+    "answer": "In Java, '==' checks for reference equality (whether two references point to the same memory location), while '.equals()' checks for value equality."
+  },
+  {
+    "topic": "Java",
+    "id": "4",
+    "question": "What is an interface in Java?",
+    "answer": "An interface is a reference type in Java, similar to a class, that can contain only abstract methods and static constants and allows classes to implement multiple forms of behavior."
+  },
+  {
+    "topic": "Java",
+    "id": "5",
+    "question": "What is multithreading?",
+    "answer": "Multithreading is a Java feature that allows concurrent execution of two or more threads to maximize CPU utilization."
+  },
+  {
+    "topic": "C#",
+    "id": "1",
+    "question": "What is the difference between an interface and an abstract class in C#?",
+    "answer": "An abstract class can have both implemented methods and abstract methods, while an interface only declares methods without implementation. A class can implement multiple interfaces but only inherit one abstract class."
+  },
+  {
+    "topic": "C#",
+    "id": "2",
+    "question": "Explain the purpose of delegates in C#.",
+    "answer": "Delegates in C# are type-safe pointers to methods, allowing methods to be passed as parameters and facilitating callback mechanisms."
+  },
+  {
+    "topic": "C#",
+    "id": "3",
+    "question": "What is LINQ in C#?",
+    "answer": "LINQ (Language-Integrated Query) is a set of features in C# that allows querying data from different data sources (like collections, SQL databases) in a more readable and concise syntax."
+  },
+  {
+    "topic": "C#",
+    "id": "4",
+    "question": "What is garbage collection in C#?",
+    "answer": "Garbage collection in C# is an automatic memory management feature that frees memory occupied by objects that are no longer accessible."
+  },
+  {
+    "topic": "C#",
+    "id": "5",
+    "question": "What are properties in C#?",
+    "answer": "Properties are members that provide a flexible mechanism to read, write, or compute the values of private fields in C#."
+  }
+]
