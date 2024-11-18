@@ -1,7 +1,42 @@
-.card-container{
+/* Topic Card Styles */
+.topic-card {
+  width: 18rem;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 10px;
+}
+
+.topic-card:hover {
+  transform: scale(1.05);
+  background-color: #007bff !important;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topic-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.topic-card:hover .card-title {
+  color: #fff;
+}
+
+/* Center Content for Better Alignment */
+.container {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 70vh; /* Full viewport height for vertical centering */
+}
+
+body {
+  background-color: #f8f9fa; /* Soft background for better contrast */
+}
+
+h2 {
+  color: #343a40; /* Darker color for headings */
 }

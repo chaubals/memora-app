@@ -3,11 +3,12 @@ import { Amplify } from "aws-amplify";
 import awsconfig from './aws-exports'; // Make sure this file is correctly generated
 import { Authenticator, withAuthenticator } from '@aws-amplify/ui-react'; // Importing the newer Authenticator
 import HomePage from "./Components/HomePage";
-import Card from "./Components/Card";
 import '@aws-amplify/ui-react/styles.css'; // Importing styles
 import { Route, Router, Routes } from "react-router-dom";
 import FlashcardBundle from "./Components/FlashcardBundle";
 import Navbar from "./Components/Navbar";
+import Contact from "./Components/Contact";
+import About from "./Components/About";
 import  "./App.css";
 
 Amplify.configure(awsconfig);
@@ -22,7 +23,9 @@ export default function MyApp() {
                     <div>
                         <Routes>
                             <Route path="/" element = {<HomePage/>} />
+                            <Route path="/contact" element = {<Contact/>} />
                             <Route path="/flashcards/:topic" element= {<FlashcardBundle/>} />
+                            <Route path="/about" element= {<About/>} />
                         </Routes>
                     </div>
                     </>

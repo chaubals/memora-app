@@ -73,8 +73,11 @@ const FlashcardBundle = ({ title }) => {
       <div className="d-flex justify-content-center mb-3">
         <div className="d-flex flex-column align-items-center mx-2">
           <div
-            className="shadow-lg p-3 card text-primary border-primary bg-body-secondary border-2"
-            onClick={openModal}
+            className="shadow-lg p-3 card text-primary border-dark bg-body-secondary border-3"
+            onClick={() => {
+              openModal();
+              setIsFlipped(false);
+            }}
             style={{
               width: "15rem",
               height: "20rem",
@@ -88,8 +91,12 @@ const FlashcardBundle = ({ title }) => {
               className="card-body text-center d-flex flex-column align-items-center justify-content-center"
               style={{ height: "100%" }}
             >
-              <h5 className="card-title">{decodedTopic} Flashcards</h5>
-              <p className="card-text text-muted">Click to show flashcards</p>
+              <h4 className="card-title fw-bold text-primary">
+                {decodedTopic} Flashcards
+              </h4>
+              <p className="card-text text-muted link-underline-dark">
+                Click to show flashcards
+              </p>
             </div>
           </div>
           <button
@@ -105,7 +112,7 @@ const FlashcardBundle = ({ title }) => {
 
         <div className="d-flex flex-column align-items-center mx-2">
           <div
-            className="shadow-lg p-3 card text-primary border-primary bg-body-secondary border-2"
+            className="shadow-lg p-3 card text-primary border-dark bg-body-secondary border-3"
             style={{
               width: "15rem", // Adjust width if needed to exactly match the other card
               height: "20rem", // Adjust height to match other card
@@ -137,6 +144,8 @@ const FlashcardBundle = ({ title }) => {
         </div>
       </div>
 
+      {/**************************************MODAL DESIGN BEGINS HERE************************************/}
+
       {/* Flashcard Modal */}
       {showModal && (
         <div
@@ -145,7 +154,7 @@ const FlashcardBundle = ({ title }) => {
           onClick={closeModal}
         >
           <div
-            className="p-4 bg-white rounded shadow-lg position-relative d-flex justify-content-center align-items-center"
+            className="p-4 bg-body-secondary rounded shadow-lg position-relative d-flex justify-content-center align-items-center border border-dark border-4"
             onClick={(e) => {
               e.stopPropagation();
               handleFlip();
@@ -185,39 +194,69 @@ const FlashcardBundle = ({ title }) => {
                 fontSize: "calc(1rem + 1vw)", // Dynamically adjusts font size based on viewport
               }}
             >
-              <p className="display-6 fw-bold">
+              <p className="display-8 fw-bold text-secondary-emphasis">
                 {!isFlipped
                   ? flashcards[currentCardIndex]?.question || "No question"
                   : flashcards[currentCardIndex]?.answer || "No answer"}
               </p>
             </div>
+            {/* Previous Button */}
             <div
               className="position-absolute start-0 d-flex align-items-center"
-              style={{ top: "50%", transform: "translateY(-50%)" }}
+              style={{
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 1,
+                marginLeft: "5px",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrevCard();
+              }}
             >
-              <button
-                className="btn btn-outline-secondary"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handlePrevCard();
-                }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-arrow-left-square"
+                viewBox="0 0 16 16"
               >
-                Previous
-              </button>
+                <path
+                  fill-rule="evenodd"
+                  d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+                />
+              </svg>
             </div>
+            {/* Next Button */}
             <div
               className="position-absolute end-0 d-flex align-items-center"
-              style={{ top: "50%", transform: "translateY(-50%)" }}
+              style={{
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 1, // Ensure buttons are above other elements
+                right: "-90px", // Position outside the flashcard's content
+                padding: "10px", // Add space around the buttons
+                marginRight: "-5px",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNextCard();
+              }}
             >
-              <button
-                className="btn btn-outline-secondary"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleNextCard();
-                }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-arrow-right-square"
+                viewBox="0 0 16 16"
               >
-                Next
-              </button>
+                <path
+                  fill-rule="evenodd"
+                  d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+                />
+              </svg>
             </div>
           </div>
         </div>
