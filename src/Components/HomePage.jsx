@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CSS/HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate(); //Initialize the navigate function
+
+  const initialTopics = ["DSA", "OOP", "Java", "C#"]
+
+  const [topics, setTopics] = useState(initialTopics);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (e) => {
+    const q = e.target.value;
+    
+    if (q === "") {
+      setTopics(initialTopics);
+      setSearchQuery("")
+    } else {
+      setSearchQuery(q);
+    const filteredTopics = initialTopics.filter((topic) =>
+      topic.toLowerCase().startsWith(q.toLowerCase()))
+    setTopics(filteredTopics);
+    }
+  }
 
   const handleCardClick = (topic) => {
     const encodedTopic = encodeURIComponent(topic);
@@ -11,12 +30,27 @@ const HomePage = () => {
     navigate(`/flashcards/${encodedTopic}`); //Navigate to the flashcards page
   };
 
-  const topics = ["DSA", "OOP", "Java", "C#"];
+  // const topics = ["DSA", "OOP", "Java", "C#"];
 
   return (
     <div>
       <div className="container mt-0">
         <h2 className="text-center mb-4 fw-bold">Select a Topic</h2>
+
+        <form className="d-flex m-3 mx-auto w-50" role="search">
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search topic"
+            aria-label="Search"
+            value={searchQuery}
+            onChangeCapture={handleChange}
+          />
+          <button className="btn btn-outline-success fw-bold" type="submit">
+            Search
+          </button>
+        </form>
+
         <div className="d-flex flex-column align-items-center">
           {topics.map((topic) => (
             <div

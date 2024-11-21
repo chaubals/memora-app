@@ -14,7 +14,7 @@ const Navbar = ({ user, signOut }) => {
           Memora
         </Link>
 
-        <form className="d-flex" role="search">
+        {/* <form className="d-flex" role="search">
           <input
             className="form-control me-2"
             type="search"
@@ -24,7 +24,7 @@ const Navbar = ({ user, signOut }) => {
           <button className="btn btn-outline-success fw-bold" type="submit">
             Search
           </button>
-        </form>
+        </form> */}
 
         <button
           className="navbar-toggler"
