@@ -5,8 +5,9 @@ import axios from "axios"; //Importing axios for making API requests
 import FlashcardModal from "./FlashcardModal";
 import CreateFlashcardModal from "./CreateFlashcardModal";
 import FlashcardDemo from "./FlashcardDemo";
+import { Auth } from "aws-amplify";
 
-const FlashcardBundle = ({ title }) => {
+const FlashcardBundle = ({ title, userEmail }) => {
   const navigate = useNavigate();
   const { topic } = useParams();
   const decodedTopic = decodeURIComponent(topic);
@@ -58,9 +59,11 @@ const FlashcardBundle = ({ title }) => {
 
   const handleSaveFlashcard = async () => {
     try {
+      const userId = userEmail;
       await axios.post(
         "https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/create-flashcards",
         {
+          userId: userId,
           topic: decodedTopic,
           question: newFlashcard.question,
           answer: newFlashcard.answer,

@@ -5,24 +5,36 @@ import "./CSS/HomePage.css";
 const HomePage = () => {
   const navigate = useNavigate(); //Initialize the navigate function
 
-  const initialTopics = ["DSA", "OOP", "Java", "C#"]
+  const initialTopics = [
+    "DSA",
+    "OOP",
+    "Java",
+    "C#",
+    "Python",
+    "HTML",
+    "React",
+    "SQL",
+    "Node.js",
+    "C++",
+  ];
 
   const [topics, setTopics] = useState(initialTopics);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (e) => {
     const q = e.target.value;
-    
+
     if (q === "") {
       setTopics(initialTopics);
-      setSearchQuery("")
+      setSearchQuery("");
     } else {
       setSearchQuery(q);
-    const filteredTopics = initialTopics.filter((topic) =>
-      topic.toLowerCase().startsWith(q.toLowerCase()))
-    setTopics(filteredTopics);
+      const filteredTopics = initialTopics.filter((topic) =>
+        topic.toLowerCase().startsWith(q.toLowerCase())
+      );
+      setTopics(filteredTopics);
     }
-  }
+  };
 
   const handleCardClick = (topic) => {
     const encodedTopic = encodeURIComponent(topic);
@@ -35,7 +47,9 @@ const HomePage = () => {
   return (
     <div>
       <div className="container mt-0">
-        <h2 className="text-center mb-4 fw-bold">Select a Topic</h2>
+        <h2 className="text-center mb-4 fw-bold">
+          What do you want to learn today?
+        </h2>
 
         <form className="d-flex m-3 mx-auto w-50" role="search">
           <input
@@ -51,18 +65,20 @@ const HomePage = () => {
           </button>
         </form>
 
-        <div className="d-flex flex-column align-items-center">
-          {topics.map((topic) => (
-            <div
-              key={topic}
-              className="card topic-card mb-3 w-50 bg-body-secondary border border-0 rounded-4"
-              onClick={() => navigate(`/flashcards/${topic}`)}
-            >
-              <div className="card-body text-center">
-                <h5 className="card-title">{topic}</h5>
+        <div className="container">
+          <div className="row row-cols-2 g-2">
+            {topics.map((topic) => (
+              <div
+                key={topic}
+                className="col card topic-card bg-body-secondary border border-0 rounded-4"
+                onClick={() => navigate(`/flashcards/${topic}`)}
+              >
+                <div className="card-body text-center">
+                  <h5 className="card-title">{topic}</h5>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
