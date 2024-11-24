@@ -5,6 +5,7 @@ import axios from "axios"; //Importing axios for making API requests
 import FlashcardModal from "./FlashcardModal";
 import CreateFlashcardModal from "./CreateFlashcardModal";
 import FlashcardDemo from "./FlashcardDemo";
+import UserFlashcardModal from "./UserFlashcardModal";
 import { Auth } from "aws-amplify";
 
 const FlashcardBundle = ({ title, userEmail }) => {
@@ -22,7 +23,9 @@ const FlashcardBundle = ({ title, userEmail }) => {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  //Track which modal is active
+  const [isUserFlashcardModal, setIsUserFlashcardModal] = useState(false);
+  const [userFlashcards, setUserFlashcards] = useState([]); //State to manage user-created flashcards
   useEffect(() => {
     const fetchFlashcards = async () => {
       try {
@@ -36,27 +39,53 @@ const FlashcardBundle = ({ title, userEmail }) => {
         setLoading(false);
       }
     };
-
     fetchFlashcards();
   }, [decodedTopic]);
-
-  const handleNextCard = () => {
-    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
-    setIsFlipped(false);
+  const fetchUserCreatedFlashcards = async () => {
+    try {
+      const userId = userEmail;
+      console.log("Email ID: ", userId);
+      const response = await axios.get(
+        `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}`
+      );
+      setUserFlashcards(response.data);
+      console.log("User flashcards: ", userFlashcards);
+      console.log("showModal: ", showModal);
+      console.log("isUserFlashcardsModal: ", isUserFlashcardModal);
+      setIsUserFlashcardModal(true); //Indicate that the modal is for user created flashcards
+      setShowModal(true); //Open the modal
+    } catch (error) {
+      console.error("Error fetching user-created flashcards: ", error);
+    }
   };
-  const handlePrevCard = () => {
-    setCurrentCardIndex((prevIndex) =>
-      prevIndex === 0 ? flashcards.length - 1 : prevIndex - 1
+  //Handling the 'Next' button for both modals (premade flashcard and user-made flashcards modals)
+  const handleNextCard = () => {
+    const currentFlashcards = isUserFlashcardModal
+      ? userFlashcards
+      : flashcards;
+    setCurrentCardIndex(
+      (prevIndex) => (prevIndex + 1) % currentFlashcards.length
     );
     setIsFlipped(false);
   };
-
+  const handlePrevCard = () => {
+    const currentFlashcards = isUserFlashcardModal
+      ? userFlashcards
+      : flashcards;
+    setCurrentCardIndex((prevIndex) =>
+      prevIndex === 0 ? currentFlashcards.length - 1 : prevIndex - 1
+    );
+    setIsFlipped(false);
+  };
   const handleFlip = () => setIsFlipped(!isFlipped);
-  const openModal = () => setShowModal(true);
+  const openModal = () => {
+    setShowModal(true);
+    setIsUserFlashcardModal(false);
+    setIsFlipped(false);
+  };
   const closeModal = () => setShowModal(false);
   const openCreateModal = () => setShowCreateModal(true);
   const closeCreateModal = () => setShowCreateModal(false);
-
   const handleSaveFlashcard = async () => {
     try {
       const userId = userEmail;
@@ -74,7 +103,7 @@ const FlashcardBundle = ({ title, userEmail }) => {
       console.error("Error saving flashcard: ", error);
     }
   };
-
+  const handleDeleteFlashcard = () => {};
   if (loading) {
     return (
       <div>
@@ -84,19 +113,27 @@ const FlashcardBundle = ({ title, userEmail }) => {
       </div>
     );
   }
-
   if (error) {
     return <div>{error}</div>;
   }
   return (
     <div className="container text-center my-4">
       <div className="d-flex justify-content-center mb-3">
+        {/* Flashcard Demo for Premade flashcards */}
         <FlashcardDemo
           title={`${decodedTopic} Flashcards`}
           description="Click to show flashcards"
           buttonText="Show Flashcards"
           onCardClick={openModal}
           onButtonClick={openModal}
+        ></FlashcardDemo>
+        {/* Flashcard Demo for User-Created flashcards */}
+        <FlashcardDemo
+          title={`Custom ${decodedTopic} Flashcards`}
+          description="Click to show your flashcards"
+          buttonText="Show My Flashcards"
+          onCardClick={fetchUserCreatedFlashcards}
+          onButtonClick={fetchUserCreatedFlashcards}
         ></FlashcardDemo>
         {/* Create Flashcards Section */}
         <FlashcardDemo
@@ -119,9 +156,8 @@ const FlashcardBundle = ({ title, userEmail }) => {
           }
         />
       </div>
-
       {/* Premade Flashcard Modal */}
-      {showModal && (
+      {showModal && !isUserFlashcardModal && (
         <FlashcardModal
           flashcards={flashcards}
           currentCardIndex={currentCardIndex}
@@ -132,7 +168,24 @@ const FlashcardBundle = ({ title, userEmail }) => {
           handlePrevCard={handlePrevCard}
         />
       )}
-
+      {/* Custom Flashcards Modal */}
+      {showModal && isUserFlashcardModal && (
+        <>
+          {console.log("Rendering the user flashcards modal")}
+          <UserFlashcardModal
+            userFlashcards={userFlashcards}
+            currentCardIndex={currentCardIndex}
+            isFlipped={isFlipped}
+            closeModal={() => {
+              setIsUserFlashcardModal(false);
+              setShowModal(false);
+            }}
+            handleFlip={handleFlip}
+            handleNextCard={handleNextCard}
+            handlePrevCard={handlePrevCard}
+          />
+        </>
+      )}
       {/* Crate Flashcard Modal */}
       {showCreateModal && (
         <CreateFlashcardModal
@@ -152,5 +205,4 @@ const FlashcardBundle = ({ title, userEmail }) => {
     </div>
   );
 };
-
 export default FlashcardBundle;

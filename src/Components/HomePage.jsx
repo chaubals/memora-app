@@ -48,7 +48,7 @@ const HomePage = () => {
     <div>
       <div className="container mt-0">
         <h2 className="text-center mb-4 fw-bold">
-          What do you want to learn today?
+          Hi there! What do you want to learn today?
         </h2>
 
         <form className="d-flex m-3 mx-auto w-50" role="search">

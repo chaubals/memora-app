@@ -17,16 +17,16 @@ Amplify.configure(awsconfig);
 export default function MyApp() {
     const [userEmail, setUserEmail] = useState(null);
 
-    const printUserAttributes = async () => {
+    (async () => {
         try {
             const userAttributes = await fetchUserAttributes();
             const email = userAttributes.email;
             setUserEmail(email);
-            console.log("Email: " + email);
+            //console.log("Email: " + email);
         } catch (e) {
             console.error("Error fetching user attributes: ", e);
     }
-    }
+    })();
 
     return (
         <div>
@@ -41,7 +41,7 @@ export default function MyApp() {
                                 <Route path="/flashcards/:topic" element={<FlashcardBundle userEmail={userEmail} />} />
                                 <Route path="/about" element={<About />} />
                             </Routes>
-                            <button onClick={printUserAttributes}>Print Attributes</button>
+                            {/* <button onClick={printUserAttributes}>Print Attributes</button> */}
                         </div>
                     </>
                 )}
