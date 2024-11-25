@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App(){
-    return(
-        <div>
-            <h1>Welcome to Memora!</h1>
-            <h2>This is a subheading.</h2>
-        </div>
-    );
-}
-
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
