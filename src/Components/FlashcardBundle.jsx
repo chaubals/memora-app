@@ -9,6 +9,9 @@ import UserFlashcardModal from "./UserFlashcardModal";
 import { Auth } from "aws-amplify";
 
 const FlashcardBundle = ({ title, userEmail }) => {
+  //User's Email ID as fetched from Authenticator page
+  const userId = userEmail;
+  console.log("userId (from Bundles): ", userId);
   const navigate = useNavigate();
   const { topic } = useParams();
   const decodedTopic = decodeURIComponent(topic);
@@ -103,7 +106,26 @@ const FlashcardBundle = ({ title, userEmail }) => {
       console.error("Error saving flashcard: ", error);
     }
   };
-  const handleDeleteFlashcard = () => {};
+  const handleDeleteFlashcard = async (userId, flashcardId) => {
+    try {
+      console.log("userId: ", userId);
+      const response = await axios.delete(
+        `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}/flashcard/${flashcardId}`,
+        { data: { userId, flashcardId } }
+      );
+      if (response.status === 200) {
+        console.log("Flashcard deleted successfully!");
+        //Removing the deleted flashcard from the state
+        setUserFlashcards((prevUserFlashcards) =>
+          prevUserFlashcards.filter((card) => card.flashcardId !== flashcardId)
+        );
+      } else {
+        console.log("Failed to delete the flashcard. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error deleting the flashcard: ", error);
+    }
+  };
   if (loading) {
     return (
       <div>
@@ -183,6 +205,8 @@ const FlashcardBundle = ({ title, userEmail }) => {
             handleFlip={handleFlip}
             handleNextCard={handleNextCard}
             handlePrevCard={handlePrevCard}
+            handleDeleteFlashcard={handleDeleteFlashcard}
+            userId={userId}
           />
         </>
       )}

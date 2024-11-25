@@ -22,7 +22,7 @@ export default function MyApp() {
             const userAttributes = await fetchUserAttributes();
             const email = userAttributes.email;
             setUserEmail(email);
-            //console.log("Email: " + email);
+            console.log("Email (from App.js): " + userEmail);
         } catch (e) {
             console.error("Error fetching user attributes: ", e);
     }
