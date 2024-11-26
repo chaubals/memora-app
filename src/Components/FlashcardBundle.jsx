@@ -11,7 +11,6 @@ import { Auth } from "aws-amplify";
 const FlashcardBundle = ({ title, userEmail }) => {
   //User's Email ID as fetched from Authenticator page
   const userId = userEmail;
-  console.log("userId (from Bundles): ", userId);
   const navigate = useNavigate();
   const { topic } = useParams();
   const decodedTopic = decodeURIComponent(topic);
@@ -44,19 +43,18 @@ const FlashcardBundle = ({ title, userEmail }) => {
     };
     fetchFlashcards();
   }, [decodedTopic]);
+  //Fetch user-created flashcards
   const fetchUserCreatedFlashcards = async () => {
     try {
       const userId = userEmail;
-      console.log("Email ID: ", userId);
+      console.log("User Id: ", userId);
+      console.log("Topic: ", decodedTopic);
       const response = await axios.get(
-        `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}`
+        `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}/topic/${decodedTopic}`
       );
       setUserFlashcards(response.data);
-      console.log("User flashcards: ", userFlashcards);
-      console.log("showModal: ", showModal);
-      console.log("isUserFlashcardsModal: ", isUserFlashcardModal);
-      setIsUserFlashcardModal(true); //Indicate that the modal is for user created flashcards
-      setShowModal(true); //Open the modal
+      setIsUserFlashcardModal(true);
+      setShowModal(true);
     } catch (error) {
       console.error("Error fetching user-created flashcards: ", error);
     }
@@ -193,7 +191,6 @@ const FlashcardBundle = ({ title, userEmail }) => {
       {/* Custom Flashcards Modal */}
       {showModal && isUserFlashcardModal && (
         <>
-          {console.log("Rendering the user flashcards modal")}
           <UserFlashcardModal
             userFlashcards={userFlashcards}
             currentCardIndex={currentCardIndex}

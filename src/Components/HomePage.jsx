@@ -12,7 +12,7 @@ const HomePage = () => {
     "C#",
     "Python",
     "HTML",
-    "React",
+    "React.js",
     "SQL",
     "Node.js",
     "C++",

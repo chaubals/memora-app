@@ -17,16 +17,20 @@ Amplify.configure(awsconfig);
 export default function MyApp() {
     const [userEmail, setUserEmail] = useState(null);
 
-    (async () => {
-        try {
-            const userAttributes = await fetchUserAttributes();
-            const email = userAttributes.email;
-            setUserEmail(email);
-            console.log("Email (from App.js): " + userEmail);
-        } catch (e) {
-            console.error("Error fetching user attributes: ", e);
-    }
-    })();
+    useEffect(() => {
+        const fetchUserEmail = async() => {
+            try {
+                const userAttributes = await fetchUserAttributes();
+                console.log("User Attributes: ", userAttributes);
+                const email = userAttributes.email;
+                setUserEmail(email);
+                console.log("Email (from App.js): " + userAttributes.email);
+            } catch (e) {
+                console.error("Error fetching user attributes: ", e);
+        }
+        }
+        fetchUserEmail();
+    }, []); //Dependency array ensures this runs only once after the component mounts   
 
     return (
         <div>
@@ -35,14 +39,20 @@ export default function MyApp() {
                     <>
                         {user && <Navbar user={user} signOut={signOut} />}
                         <div>
+                        {userEmail === null ? (
+                            <div>Loading...</div> // Show a loader or message until email is fetched
+                        ) : (
                             <Routes>
-                                <Route path="/" element={<HomePage/>} />
+                                <Route path="/" element={<HomePage />} />
                                 <Route path="/contact" element={<Contact />} />
-                                <Route path="/flashcards/:topic" element={<FlashcardBundle userEmail={userEmail} />} />
+                                <Route
+                                    path="/flashcards/:topic"
+                                    element={<FlashcardBundle userEmail={userEmail} />}
+                                />
                                 <Route path="/about" element={<About />} />
                             </Routes>
-                            {/* <button onClick={printUserAttributes}>Print Attributes</button> */}
-                        </div>
+                        )}
+                    </div>
                     </>
                 )}
             </Authenticator>

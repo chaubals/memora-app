@@ -1,122 +1,62 @@
 [
   {
-    "topic": "DSA",
-    "id": "1",
-    "question": "What is a binary search tree?",
-    "answer": "A binary tree where each node has at most two children, and the left subtree of a node contains only nodes with values less than the node’s key, while the right subtree only contains nodes with values greater than the node’s key."
+    "topic": "HTML",
+    "id": "html001",
+    "question": "What is HTML?",
+    "answer": "HTML (HyperText Markup Language) is the standard language for creating and designing web pages. It uses elements and tags to structure content such as headings, paragraphs, images, and links."
   },
   {
-    "topic": "DSA",
-    "id": "2",
-    "question": "Explain the time complexity of quicksort.",
-    "answer": "Quicksort has an average time complexity of O(n log n) but can degrade to O(n^2) if the pivot selection is poor (e.g., always selecting the largest or smallest element as pivot in an already sorted array)."
+    "topic": "HTML",
+    "id": "html002",
+    "question": "What is the difference between HTML and XHTML?",
+    "answer": "HTML is not case-sensitive and is more flexible with syntax. XHTML is a stricter version of HTML, requiring proper nesting, lowercase tags, and closing all tags."
   },
   {
-    "topic": "DSA",
-    "id": "3",
-    "question": "What is dynamic programming?",
-    "answer": "Dynamic programming is an optimization technique that solves complex problems by breaking them down into simpler subproblems and storing the results of these subproblems to avoid redundant calculations."
+    "topic": "HTML",
+    "id": "html003",
+    "question": "What are semantic HTML elements?",
+    "answer": "Semantic elements clearly define their meaning in a human- and machine-readable way. Examples include <header>, <footer>, <article>, <section>, and <aside>, which improve accessibility and SEO."
   },
   {
-    "topic": "DSA",
-    "id": "4",
-    "question": "Describe a stack data structure.",
-    "answer": "A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, where elements are added and removed from the same end, called the top."
+    "topic": "HTML",
+    "id": "html004",
+    "question": "What is the difference between <div> and <span>?",
+    "answer": "<div> is a block-level element used for grouping and styling larger content, while <span> is an inline element used for styling small parts of text or content within a line."
   },
   {
-    "topic": "DSA",
-    "id": "5",
-    "question": "What is a graph traversal algorithm?",
-    "answer": "Graph traversal algorithms are methods to visit nodes in a graph in a specific order, such as Depth-First Search (DFS) and Breadth-First Search (BFS)."
+    "topic": "HTML",
+    "id": "html005",
+    "question": "What are the different types of lists in HTML?",
+    "answer": "HTML supports three types of lists: 1) Ordered lists (<ol>) for numbered items, 2) Unordered lists (<ul>) for bulleted items, and 3) Definition lists (<dl>) for terms and descriptions."
   },
   {
-    "topic": "OOP",
-    "id": "1",
-    "question": "What is polymorphism?",
-    "answer": "Polymorphism is the ability of a function, object, or method to behave in different ways based on the context, such as method overloading and method overriding."
+    "topic": "HTML",
+    "id": "html006",
+    "question": "What is the purpose of the <!DOCTYPE> declaration?",
+    "answer": "The <!DOCTYPE> declaration defines the document type and version of HTML being used. It helps the browser render the page correctly."
   },
   {
-    "topic": "OOP",
-    "id": "2",
-    "question": "Define encapsulation in OOP.",
-    "answer": "Encapsulation is the concept of bundling data and methods that operate on the data within a single unit, typically a class, and restricting access to some of the object's components."
+    "topic": "HTML",
+    "id": "html007",
+    "question": "What is the difference between <head> and <body> tags in HTML?",
+    "answer": "The <head> contains metadata, scripts, styles, and links to external resources. The <body> contains the visible content of the web page, such as text, images, and videos."
   },
   {
-    "topic": "OOP",
-    "id": "3",
-    "question": "What is inheritance?",
-    "answer": "Inheritance is a mechanism where a new class (derived class) inherits properties and behavior (methods) from an existing class (base class)."
+    "topic": "HTML",
+    "id": "html008",
+    "question": "What is the difference between inline, block, and inline-block elements?",
+    "answer": "Inline elements do not start on a new line and take up only as much width as needed. Block elements start on a new line and take up the full width. Inline-block elements are like inline elements but allow setting width and height."
   },
   {
-    "topic": "OOP",
-    "id": "4",
-    "question": "Explain the concept of abstraction.",
-    "answer": "Abstraction is the concept of hiding the complex reality while exposing only the necessary parts, making it easier for the user to understand and interact with the system."
+    "topic": "HTML",
+    "id": "html009",
+    "question": "What are HTML attributes?",
+    "answer": "Attributes provide additional information about HTML elements. They are specified inside the opening tag and usually come in name-value pairs, such as class, id, src, and href."
   },
   {
-    "topic": "OOP",
-    "id": "5",
-    "question": "What is a constructor?",
-    "answer": "A constructor is a special method used to initialize objects when they are created, often setting initial values for object attributes."
-  },
-  {
-    "topic": "Java",
-    "id": "1",
-    "question": "What is the Java Virtual Machine (JVM)?",
-    "answer": "The JVM is a virtual machine that allows Java programs to run on any device or operating system by providing an execution environment."
-  },
-  {
-    "topic": "Java",
-    "id": "2",
-    "question": "Explain the concept of garbage collection in Java.",
-    "answer": "Garbage collection is the process by which Java programs perform automatic memory management, reclaiming memory occupied by objects no longer in use."
-  },
-  {
-    "topic": "Java",
-    "id": "3",
-    "question": "What is the difference between == and .equals() in Java?",
-    "answer": "In Java, '==' checks for reference equality (whether two references point to the same memory location), while '.equals()' checks for value equality."
-  },
-  {
-    "topic": "Java",
-    "id": "4",
-    "question": "What is an interface in Java?",
-    "answer": "An interface is a reference type in Java, similar to a class, that can contain only abstract methods and static constants and allows classes to implement multiple forms of behavior."
-  },
-  {
-    "topic": "Java",
-    "id": "5",
-    "question": "What is multithreading?",
-    "answer": "Multithreading is a Java feature that allows concurrent execution of two or more threads to maximize CPU utilization."
-  },
-  {
-    "topic": "C#",
-    "id": "1",
-    "question": "What is the difference between an interface and an abstract class in C#?",
-    "answer": "An abstract class can have both implemented methods and abstract methods, while an interface only declares methods without implementation. A class can implement multiple interfaces but only inherit one abstract class."
-  },
-  {
-    "topic": "C#",
-    "id": "2",
-    "question": "Explain the purpose of delegates in C#.",
-    "answer": "Delegates in C# are type-safe pointers to methods, allowing methods to be passed as parameters and facilitating callback mechanisms."
-  },
-  {
-    "topic": "C#",
-    "id": "3",
-    "question": "What is LINQ in C#?",
-    "answer": "LINQ (Language-Integrated Query) is a set of features in C# that allows querying data from different data sources (like collections, SQL databases) in a more readable and concise syntax."
-  },
-  {
-    "topic": "C#",
-    "id": "4",
-    "question": "What is garbage collection in C#?",
-    "answer": "Garbage collection in C# is an automatic memory management feature that frees memory occupied by objects that are no longer accessible."
-  },
-  {
-    "topic": "C#",
-    "id": "5",
-    "question": "What are properties in C#?",
-    "answer": "Properties are members that provide a flexible mechanism to read, write, or compute the values of private fields in C#."
+    "topic": "HTML",
+    "id": "html010",
+    "question": "What is the difference between an <iframe> and a <frame> in HTML?",
+    "answer": "<iframe> is used to embed another HTML document within the current page. <frame> was used in HTML4 to create framesets, but it is now obsolete in HTML5."
   }
-]
+  ]

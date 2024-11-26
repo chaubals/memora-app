@@ -1,4 +1,4 @@
-""" import boto3
+import boto3
 import json
 
 # Initialize DynamoDB resource and the DynamoDB table
@@ -24,4 +24,3 @@ for card in flashcards_data:
         print(f"Successfully inserted flashcard: {card['id']}")
     except Exception as e:
         print(f"Error inserting flashcard {card['id']}: {str(e)}")
- """
