@@ -47,8 +47,6 @@ const FlashcardBundle = ({ title, userEmail }) => {
   const fetchUserCreatedFlashcards = async () => {
     try {
       const userId = userEmail;
-      console.log("User Id: ", userId);
-      console.log("Topic: ", decodedTopic);
       const response = await axios.get(
         `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}/topic/${decodedTopic}`
       );
@@ -106,7 +104,6 @@ const FlashcardBundle = ({ title, userEmail }) => {
   };
   const handleDeleteFlashcard = async (userId, flashcardId) => {
     try {
-      console.log("userId: ", userId);
       const response = await axios.delete(
         `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}/flashcard/${flashcardId}`,
         { data: { userId, flashcardId } }
@@ -126,9 +123,11 @@ const FlashcardBundle = ({ title, userEmail }) => {
   };
   if (loading) {
     return (
-      <div>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+      <div className="container">
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <div className="spinner-border text-center" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
       </div>
     );
@@ -158,7 +157,7 @@ const FlashcardBundle = ({ title, userEmail }) => {
         {/* Create Flashcards Section */}
         <FlashcardDemo
           title="Create Your Own Flashcards"
-          description="Click to create your own flashcards"
+          description="Click to create flashcards"
           buttonText="Create New Flashcards"
           onCardClick={openCreateModal}
           onButtonClick={openCreateModal}

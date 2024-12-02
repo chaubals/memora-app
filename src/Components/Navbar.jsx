@@ -10,22 +10,21 @@ const Navbar = ({ user, signOut }) => {
       data-bs-theme="dark"
     >
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand text-light fw-bold">
-          Memora
-        </Link>
-
-        {/* <form className="d-flex" role="search">
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search topic"
-            aria-label="Search"
+        <Link to="/" className="navbar-brand text-light">
+          <img
+            alt="Memora logo"
+            src="./logo_no_bg.png"
+            style={{
+              maxWidth: "130px",
+              marginBottom: "0px",
+              transition: "transform 0.3s ease-in-out",
+            }}
+            className="logo-img"
           />
-          <button className="btn btn-outline-success fw-bold" type="submit">
-            Search
-          </button>
-        </form> */}
-
+        </Link>
+        {/* <Link to="/" className="navbar-brand text-light fw-bold">
+          Memora
+        </Link> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -71,12 +70,37 @@ const Navbar = ({ user, signOut }) => {
             </li>
             {user && (
               <li className="nav-item">
-                <button
-                  onClick={signOut}
-                  className="btn btn-danger text-light ms-2 rounded-3 p-1"
-                >
-                  Sign Out
-                </button>
+                <div className="dropstart">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    fill="white"
+                    className="bi bi-person-circle dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    viewBox="0 0 16 16"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                    />
+                  </svg>
+                  <ul className="dropdown-menu dropdown-menu-start">
+                    <li>
+                      <a
+                        className="dropdown-item d-flex align-items-center"
+                        style={{ cursor: "pointer" }}
+                        onClick={signOut}
+                      >
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sign Out
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </li>
             )}
           </ul>

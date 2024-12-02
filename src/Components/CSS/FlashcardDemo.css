@@ -1,0 +1,22 @@
+.flashcard-demo {
+  width: 15rem;
+  height: 20rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  background-color: var(--bs-body-secondary); /* Default background */
+  color: var(--bs-primary); /* Default text color */
+}
+
+.flashcard-demo:hover {
+  transform: scale(1.05);
+  background-color: var(--bs-primary) !important; /* Change to primary color on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+.flashcard-demo:hover .card-title,
+.flashcard-demo:hover .card-text {
+  color: white !important; /* Ensure text turns white */
+}

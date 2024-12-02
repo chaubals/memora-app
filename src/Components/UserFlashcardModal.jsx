@@ -1,4 +1,8 @@
 import axios from "axios";
+import DeleteModal from "./DeleteModal";
+import React from "react";
+import { useState } from "react";
+import "./CSS/UserFlashcardModal.css";
 
 function UserFlashcardModal({
   userFlashcards,
@@ -22,7 +26,13 @@ function UserFlashcardModal({
     );
   }
   const currentCard = userFlashcards[currentCardIndex];
-
+  const [isDeleteModal, setIsDeleteModal] = useState(false);
+  const openDeleteModal = () => {
+    setIsDeleteModal(true);
+  };
+  const closeDeleteModal = () => {
+    setIsDeleteModal(false);
+  };
   return (
     <div>
       <div
@@ -31,47 +41,64 @@ function UserFlashcardModal({
         onClick={closeModal}
       >
         <div
-          className="p-4 bg-body-secondary rounded shadow-lg position-relative d-flex justify-content-center align-items-center border border-dark border-4"
+          className="card-container p-2 bg-info-subtle rounded-4 shadow-lg position-relative d-flex justify-content-center align-items-center border border-dark border-1"
           onClick={(e) => {
             e.stopPropagation();
             handleFlip();
           }}
           style={{
             cursor: "pointer",
-            width: "450px",
-            height: "550px",
+            width: "400px",
+            height: "500px",
             maxWidth: "90%",
             maxHeight: "90%",
-            overflow: "hidden",
           }}
         >
           <button
             type="button"
             className="btn-close position-absolute top-0 end-0 m-2"
             onClick={closeModal}
-            style={{ color: "black" }}
+            style={{ color: "black", zIndex: 10 }}
           />
-          <div
-            className="text-center"
-            style={{
-              cursor: "pointer",
-              width: "100%",
-              height: "100%",
-              overflow: "auto",
-              padding: "1rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "calc(1rem + 1vw)",
-            }}
-          >
-            <p className="display-8 fw-bold text-secondary-emphasis">
-              {!isFlipped
-                ? userFlashcards[currentCardIndex]?.question || "No question"
-                : userFlashcards[currentCardIndex]?.answer || "No answer"}
-            </p>
+
+          {/* Flashcard Content with Flip Animation */}
+          <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
+            {/* Front of the card */}
+            <div className="flashcard-front text-center">
+              <p
+                className="display-8 fw-bold text-secondary-emphasis fs-3"
+                style={{
+                  overflow: "auto",
+                  padding: "1rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "calc(1rem + 1vw)",
+                }}
+              >
+                {userFlashcards[currentCardIndex]?.question || "No question"}
+              </p>
+            </div>
+
+            {/* Back of the card */}
+            <div className="flashcard-back text-center">
+              <p
+                className="display-8 fw-bold text-secondary-emphasis fs-3"
+                style={{
+                  overflow: "auto",
+                  padding: "1rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "calc(1rem + 1vw)",
+                }}
+              >
+                {userFlashcards[currentCardIndex]?.answer || "No answer"}
+              </p>
+            </div>
           </div>
-          {/* Previous Button */}
+
+          {/* Previous and Next Buttons */}
           <div
             className="position-absolute start-0 d-flex align-items-center"
             style={{
@@ -97,7 +124,6 @@ function UserFlashcardModal({
               />
             </svg>
           </div>
-          {/* Next Button */}
           <div
             className="position-absolute end-0 d-flex align-items-center"
             style={{
@@ -127,30 +153,43 @@ function UserFlashcardModal({
             className="position-absolute end-0 d-flex align-items-center"
             style={{
               top: "5%",
-              transform: "translateY(-50%)",
-              marginRight: "40%",
+              transform: "translateY(-62%)",
+              marginRight: "43%",
             }}
           >
-            <button
-              className="btn btn-danger"
+            <div
+              className="btn btn-danger p-2"
               onClick={(e) => {
                 e.stopPropagation();
-                console.log("Delete button clicked. userId: ", userId); // Debug log
-                console.log(
-                  "Delete button clicked. flashcardId: ",
-                  userFlashcards[currentCardIndex].flashcardId
-                );
-                handleDeleteFlashcard(
-                  userId,
-                  userFlashcards[currentCardIndex].flashcardId
-                );
+                openDeleteModal();
               }}
             >
-              Delete
-            </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="danger"
+                class="bi bi-trash3"
+                viewBox="0 0 16 16"
+              >
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
+      {isDeleteModal && (
+        <DeleteModal
+          onDelete={() => {
+            handleDeleteFlashcard(
+              userId,
+              userFlashcards[currentCardIndex].flashcardId
+            );
+            closeDeleteModal();
+          }}
+          onCancel={closeDeleteModal}
+        />
+      )}
     </div>
   );
 }
