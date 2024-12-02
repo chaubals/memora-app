@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./CSS/HomePage.css";
 
 const HomePage = () => {
-  const navigate = useNavigate(); //Initialize the navigate function
+  const navigate = useNavigate();
 
   const initialTopics = [
     "DSA",
@@ -12,7 +12,7 @@ const HomePage = () => {
     "C#",
     "Python",
     "HTML",
-    "React",
+    "React.js",
     "SQL",
     "Node.js",
     "C++",
@@ -20,6 +20,7 @@ const HomePage = () => {
 
   const [topics, setTopics] = useState(initialTopics);
   const [searchQuery, setSearchQuery] = useState("");
+  document.title = "Memora - Home";
 
   const handleChange = (e) => {
     const q = e.target.value;
@@ -40,14 +41,13 @@ const HomePage = () => {
     const encodedTopic = encodeURIComponent(topic);
     console.log(`Clicked on ${encodedTopic}`); //Logging the clicked topic
     navigate(`/flashcards/${encodedTopic}`); //Navigate to the flashcards page
+    document.title = `Memora - ${topic}`;
   };
-
-  // const topics = ["DSA", "OOP", "Java", "C#"];
 
   return (
     <div>
       <div className="container mt-0">
-        <h2 className="text-center mb-4 fw-bold">
+        <h2 className="text-center mb-4 fw-bold mt-3 fs-3">
           Hi there! What do you want to learn today?
         </h2>
 
@@ -66,12 +66,14 @@ const HomePage = () => {
         </form>
 
         <div className="container">
-          <div className="row row-cols-2 g-2">
+          <div className="row row-cols-2 g-1 d-flex justify-content-center">
             {topics.map((topic) => (
               <div
                 key={topic}
-                className="col card topic-card bg-body-secondary border border-0 rounded-4"
-                onClick={() => navigate(`/flashcards/${topic}`)}
+                className="col card topic-card bg-body-secondary border border-0 rounded-4 g-2 m-2"
+                onClick={() => {
+                  handleCardClick(topic);
+                }}
               >
                 <div className="card-body text-center">
                   <h5 className="card-title">{topic}</h5>

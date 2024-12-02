@@ -1,6 +1,6 @@
 /* Topic Card Styles */
 .topic-card {
-  width: 18rem;
+  width: 33rem !important;
   background-color: #f8f9fa;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;

@@ -54,9 +54,29 @@
 }
 
 body {
-  background-color: #f8f9fa !important; /* Soft background for better contrast */
+  background-color: #f8f9fade !important; /* Soft background for better contrast */
 }
 
-h2, h4 {
+h2, h4, h1 {
   color: #343a40 !important; /* Darker color for headings */
+}
+
+/* Styling for the custom content outside the sign-in box */
+.custom-signin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.custom-signin-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.custom-signin-header p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1rem;
 }

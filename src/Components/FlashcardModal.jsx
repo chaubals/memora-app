@@ -1,4 +1,5 @@
 import React from "react";
+import "./CSS/FlashcardModal.css"; // Import external CSS for styles
 
 function FlashcardModal({
   flashcards,
@@ -17,47 +18,64 @@ function FlashcardModal({
         onClick={closeModal}
       >
         <div
-          className="p-4 bg-body-secondary rounded shadow-lg position-relative d-flex justify-content-center align-items-center border border-dark border-4"
+          className="card-container p-2 bg-info-subtle rounded-4 shadow-lg position-relative d-flex justify-content-center align-items-center border border-dark border-1"
           onClick={(e) => {
             e.stopPropagation();
             handleFlip();
           }}
           style={{
             cursor: "pointer",
-            width: "450px",
-            height: "550px",
+            width: "400px",
+            height: "500px",
             maxWidth: "90%",
             maxHeight: "90%",
-            overflow: "hidden",
           }}
         >
           <button
             type="button"
             className="btn-close position-absolute top-0 end-0 m-2"
             onClick={closeModal}
-            style={{ color: "black" }}
+            style={{ color: "black", zIndex: 10 }}
           />
-          <div
-            className="text-center"
-            style={{
-              cursor: "pointer",
-              width: "100%",
-              height: "100%",
-              overflow: "auto",
-              padding: "1rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "calc(1rem + 1vw)",
-            }}
-          >
-            <p className="display-8 fw-bold text-secondary-emphasis">
-              {!isFlipped
-                ? flashcards[currentCardIndex]?.question || "No question"
-                : flashcards[currentCardIndex]?.answer || "No answer"}
-            </p>
+
+          {/* Flashcard Content with Flip Animation */}
+          <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
+            {/* Front of the card */}
+            <div className="flashcard-front text-center">
+              <p
+                className="display-8 fw-bold text-secondary-emphasis fs-3"
+                style={{
+                  overflow: "auto",
+                  padding: "1rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "calc(1rem + 1vw)",
+                }}
+              >
+                {flashcards[currentCardIndex]?.question || "No question"}
+              </p>
+            </div>
+
+            {/* Back of the card */}
+            <div className="flashcard-back text-center">
+              <p
+                className="display-8 fw-bold text-secondary-emphasis fs-3"
+                style={{
+                  overflow: "auto",
+                  padding: "1rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "calc(1rem + 1vw)",
+                }}
+              >
+                {flashcards[currentCardIndex]?.answer || "No answer"}
+              </p>
+            </div>
           </div>
-          {/* Previous Button */}
+
+          {/* Previous and Next Buttons */}
           <div
             className="position-absolute start-0 d-flex align-items-center"
             style={{
@@ -83,7 +101,6 @@ function FlashcardModal({
               />
             </svg>
           </div>
-          {/* Next Button */}
           <div
             className="position-absolute end-0 d-flex align-items-center"
             style={{

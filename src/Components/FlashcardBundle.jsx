@@ -11,7 +11,6 @@ import { Auth } from "aws-amplify";
 const FlashcardBundle = ({ title, userEmail }) => {
   //User's Email ID as fetched from Authenticator page
   const userId = userEmail;
-  console.log("userId (from Bundles): ", userId);
   const navigate = useNavigate();
   const { topic } = useParams();
   const decodedTopic = decodeURIComponent(topic);
@@ -44,19 +43,16 @@ const FlashcardBundle = ({ title, userEmail }) => {
     };
     fetchFlashcards();
   }, [decodedTopic]);
+  //Fetch user-created flashcards
   const fetchUserCreatedFlashcards = async () => {
     try {
       const userId = userEmail;
-      console.log("Email ID: ", userId);
       const response = await axios.get(
-        `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}`
+        `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}/topic/${decodedTopic}`
       );
       setUserFlashcards(response.data);
-      console.log("User flashcards: ", userFlashcards);
-      console.log("showModal: ", showModal);
-      console.log("isUserFlashcardsModal: ", isUserFlashcardModal);
-      setIsUserFlashcardModal(true); //Indicate that the modal is for user created flashcards
-      setShowModal(true); //Open the modal
+      setIsUserFlashcardModal(true);
+      setShowModal(true);
     } catch (error) {
       console.error("Error fetching user-created flashcards: ", error);
     }
@@ -108,7 +104,6 @@ const FlashcardBundle = ({ title, userEmail }) => {
   };
   const handleDeleteFlashcard = async (userId, flashcardId) => {
     try {
-      console.log("userId: ", userId);
       const response = await axios.delete(
         `https://x8u81cy04l.execute-api.us-east-1.amazonaws.com/dev/flashcards/user/${userId}/flashcard/${flashcardId}`,
         { data: { userId, flashcardId } }
@@ -128,9 +123,11 @@ const FlashcardBundle = ({ title, userEmail }) => {
   };
   if (loading) {
     return (
-      <div>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+      <div className="container">
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <div className="spinner-border text-center" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
       </div>
     );
@@ -160,7 +157,7 @@ const FlashcardBundle = ({ title, userEmail }) => {
         {/* Create Flashcards Section */}
         <FlashcardDemo
           title="Create Your Own Flashcards"
-          description="Click to create your own flashcards"
+          description="Click to create flashcards"
           buttonText="Create New Flashcards"
           onCardClick={openCreateModal}
           onButtonClick={openCreateModal}
@@ -193,7 +190,6 @@ const FlashcardBundle = ({ title, userEmail }) => {
       {/* Custom Flashcards Modal */}
       {showModal && isUserFlashcardModal && (
         <>
-          {console.log("Rendering the user flashcards modal")}
           <UserFlashcardModal
             userFlashcards={userFlashcards}
             currentCardIndex={currentCardIndex}

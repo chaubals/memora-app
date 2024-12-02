@@ -1,122 +1,62 @@
 [
   {
-    "topic": "DSA",
-    "id": "1",
-    "question": "What is a binary search tree?",
-    "answer": "A binary tree where each node has at most two children, and the left subtree of a node contains only nodes with values less than the node’s key, while the right subtree only contains nodes with values greater than the node’s key."
+    "topic": "CSS",
+    "id": "css001",
+    "question": "What is CSS?",
+    "answer": "CSS (Cascading Style Sheets) is a stylesheet language used to control the presentation of HTML elements. It defines the layout, colors, fonts, and overall visual appearance of a web page."
   },
   {
-    "topic": "DSA",
-    "id": "2",
-    "question": "Explain the time complexity of quicksort.",
-    "answer": "Quicksort has an average time complexity of O(n log n) but can degrade to O(n^2) if the pivot selection is poor (e.g., always selecting the largest or smallest element as pivot in an already sorted array)."
+    "topic": "CSS",
+    "id": "css002",
+    "question": "What are the different types of CSS?",
+    "answer": "The three types of CSS are: 1) Inline CSS (applied directly to an HTML element via the style attribute), 2) Internal CSS (defined within a <style> tag in the HTML file), and 3) External CSS (defined in an external .css file linked to the HTML)."
   },
   {
-    "topic": "DSA",
-    "id": "3",
-    "question": "What is dynamic programming?",
-    "answer": "Dynamic programming is an optimization technique that solves complex problems by breaking them down into simpler subproblems and storing the results of these subproblems to avoid redundant calculations."
+    "topic": "CSS",
+    "id": "css003",
+    "question": "What is the difference between classes and IDs in CSS?",
+    "answer": "Classes are reusable selectors that can be applied to multiple elements using the '.' notation (e.g., .classname). IDs are unique and apply to a single element using the '#' notation (e.g., #idname)."
   },
   {
-    "topic": "DSA",
-    "id": "4",
-    "question": "Describe a stack data structure.",
-    "answer": "A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, where elements are added and removed from the same end, called the top."
+    "topic": "CSS",
+    "id": "css004",
+    "question": "What is the Box Model in CSS?",
+    "answer": "The CSS Box Model consists of four areas: content, padding, border, and margin. It determines how an element's size and space are calculated and rendered on the web page."
   },
   {
-    "topic": "DSA",
-    "id": "5",
-    "question": "What is a graph traversal algorithm?",
-    "answer": "Graph traversal algorithms are methods to visit nodes in a graph in a specific order, such as Depth-First Search (DFS) and Breadth-First Search (BFS)."
+    "topic": "CSS",
+    "id": "css005",
+    "question": "What is the difference between relative, absolute, fixed, and sticky positioning in CSS?",
+    "answer": "1) Relative: Positions an element relative to its normal position. 2) Absolute: Positions an element relative to its nearest positioned ancestor. 3) Fixed: Positions an element relative to the viewport, regardless of scrolling. 4) Sticky: Toggles between relative and fixed based on the scroll position."
   },
   {
-    "topic": "OOP",
-    "id": "1",
-    "question": "What is polymorphism?",
-    "answer": "Polymorphism is the ability of a function, object, or method to behave in different ways based on the context, such as method overloading and method overriding."
+    "topic": "CSS",
+    "id": "css006",
+    "question": "What is the difference between 'em' and 'rem' units in CSS?",
+    "answer": "'em' is relative to the font-size of the parent element, while 'rem' is relative to the root element's font-size."
   },
   {
-    "topic": "OOP",
-    "id": "2",
-    "question": "Define encapsulation in OOP.",
-    "answer": "Encapsulation is the concept of bundling data and methods that operate on the data within a single unit, typically a class, and restricting access to some of the object's components."
+    "topic": "CSS",
+    "id": "css007",
+    "question": "What are pseudo-classes in CSS?",
+    "answer": "Pseudo-classes define the special state of an element. Examples include :hover (when an element is hovered), :focus (when an element is focused), and :nth-child() (for selecting specific children)."
   },
   {
-    "topic": "OOP",
-    "id": "3",
-    "question": "What is inheritance?",
-    "answer": "Inheritance is a mechanism where a new class (derived class) inherits properties and behavior (methods) from an existing class (base class)."
+    "topic": "CSS",
+    "id": "css008",
+    "question": "What are pseudo-elements in CSS?",
+    "answer": "Pseudo-elements allow styling specific parts of an element. Examples include ::before (inserts content before an element) and ::after (inserts content after an element)."
   },
   {
-    "topic": "OOP",
-    "id": "4",
-    "question": "Explain the concept of abstraction.",
-    "answer": "Abstraction is the concept of hiding the complex reality while exposing only the necessary parts, making it easier for the user to understand and interact with the system."
+    "topic": "CSS",
+    "id": "css009",
+    "question": "What are media queries in CSS?",
+    "answer": "Media queries are used for responsive design. They apply different styles based on device characteristics like screen width, height, resolution, or orientation."
   },
   {
-    "topic": "OOP",
-    "id": "5",
-    "question": "What is a constructor?",
-    "answer": "A constructor is a special method used to initialize objects when they are created, often setting initial values for object attributes."
-  },
-  {
-    "topic": "Java",
-    "id": "1",
-    "question": "What is the Java Virtual Machine (JVM)?",
-    "answer": "The JVM is a virtual machine that allows Java programs to run on any device or operating system by providing an execution environment."
-  },
-  {
-    "topic": "Java",
-    "id": "2",
-    "question": "Explain the concept of garbage collection in Java.",
-    "answer": "Garbage collection is the process by which Java programs perform automatic memory management, reclaiming memory occupied by objects no longer in use."
-  },
-  {
-    "topic": "Java",
-    "id": "3",
-    "question": "What is the difference between == and .equals() in Java?",
-    "answer": "In Java, '==' checks for reference equality (whether two references point to the same memory location), while '.equals()' checks for value equality."
-  },
-  {
-    "topic": "Java",
-    "id": "4",
-    "question": "What is an interface in Java?",
-    "answer": "An interface is a reference type in Java, similar to a class, that can contain only abstract methods and static constants and allows classes to implement multiple forms of behavior."
-  },
-  {
-    "topic": "Java",
-    "id": "5",
-    "question": "What is multithreading?",
-    "answer": "Multithreading is a Java feature that allows concurrent execution of two or more threads to maximize CPU utilization."
-  },
-  {
-    "topic": "C#",
-    "id": "1",
-    "question": "What is the difference between an interface and an abstract class in C#?",
-    "answer": "An abstract class can have both implemented methods and abstract methods, while an interface only declares methods without implementation. A class can implement multiple interfaces but only inherit one abstract class."
-  },
-  {
-    "topic": "C#",
-    "id": "2",
-    "question": "Explain the purpose of delegates in C#.",
-    "answer": "Delegates in C# are type-safe pointers to methods, allowing methods to be passed as parameters and facilitating callback mechanisms."
-  },
-  {
-    "topic": "C#",
-    "id": "3",
-    "question": "What is LINQ in C#?",
-    "answer": "LINQ (Language-Integrated Query) is a set of features in C# that allows querying data from different data sources (like collections, SQL databases) in a more readable and concise syntax."
-  },
-  {
-    "topic": "C#",
-    "id": "4",
-    "question": "What is garbage collection in C#?",
-    "answer": "Garbage collection in C# is an automatic memory management feature that frees memory occupied by objects that are no longer accessible."
-  },
-  {
-    "topic": "C#",
-    "id": "5",
-    "question": "What are properties in C#?",
-    "answer": "Properties are members that provide a flexible mechanism to read, write, or compute the values of private fields in C#."
+    "topic": "CSS",
+    "id": "css010",
+    "question": "What is Flexbox in CSS?",
+    "answer": "Flexbox (Flexible Box Layout) is a CSS layout model that provides a way to align and distribute items in a container. It is useful for creating responsive designs and managing space between items."
   }
-]
+  ]
