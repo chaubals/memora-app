@@ -9,13 +9,13 @@ const HomePage = () => {
     "DSA",
     "OOP",
     "Java",
-    "C#",
+    "CSharp",
     "Python",
     "HTML",
     "React.js",
     "SQL",
     "Node.js",
-    "C++",
+    "Cpp",
   ];
 
   const [topics, setTopics] = useState(initialTopics);

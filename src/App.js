@@ -78,7 +78,13 @@ export default function MyApp() {
                         {user && <Navbar user={user} signOut={signOut} />}
                         <div>
                             {userEmail === null ? (
-                                <div>Loading...</div> // Show a loader or message until email is fetched
+                                <div className="container">
+                                <div className="d-flex flex-column justify-content-center align-items-center">
+                                  <div className="spinner-border text-center" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                  </div>
+                                </div>
+                              </div> // Show a loader or message until email is fetched
                             ) : (
                                 <Routes>
                                     <Route path="/" element={<HomePage />} />

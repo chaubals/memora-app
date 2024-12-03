@@ -1,62 +1,62 @@
 [
   {
-    "topic": "CSS",
-    "id": "css001",
-    "question": "What is CSS?",
-    "answer": "CSS (Cascading Style Sheets) is a stylesheet language used to control the presentation of HTML elements. It defines the layout, colors, fonts, and overall visual appearance of a web page."
+    "topic": "Cpp",
+    "id": "cpp001",
+    "question": "What is cpp?",
+    "answer": "cpp is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language. It supports object-oriented, procedural, and generic programming paradigms."
   },
   {
-    "topic": "CSS",
-    "id": "css002",
-    "question": "What are the different types of CSS?",
-    "answer": "The three types of CSS are: 1) Inline CSS (applied directly to an HTML element via the style attribute), 2) Internal CSS (defined within a <style> tag in the HTML file), and 3) External CSS (defined in an external .css file linked to the HTML)."
+    "topic": "Cpp",
+    "id": "cpp002",
+    "question": "What is the difference between C and cpp?",
+    "answer": "C is a procedural programming language, while cpp supports both procedural and object-oriented programming. cpp allows the use of classes, inheritance, polymorphism, and encapsulation, which are not available in C."
   },
   {
-    "topic": "CSS",
-    "id": "css003",
-    "question": "What is the difference between classes and IDs in CSS?",
-    "answer": "Classes are reusable selectors that can be applied to multiple elements using the '.' notation (e.g., .classname). IDs are unique and apply to a single element using the '#' notation (e.g., #idname)."
+    "topic": "Cpp",
+    "id": "cpp003",
+    "question": "What are the basic data types in cpp?",
+    "answer": "The basic data types in cpp include: int (integer), char (character), float (floating-point), double (double-precision floating-point), and bool (Boolean value)."
   },
   {
-    "topic": "CSS",
-    "id": "css004",
-    "question": "What is the Box Model in CSS?",
-    "answer": "The CSS Box Model consists of four areas: content, padding, border, and margin. It determines how an element's size and space are calculated and rendered on the web page."
+    "topic": "Cpp",
+    "id": "cpp004",
+    "question": "What is a pointer in cpp?",
+    "answer": "A pointer in cpp is a variable that stores the memory address of another variable. Pointers allow for dynamic memory allocation and can be used for arrays, structures, and objects."
   },
   {
-    "topic": "CSS",
-    "id": "css005",
-    "question": "What is the difference between relative, absolute, fixed, and sticky positioning in CSS?",
-    "answer": "1) Relative: Positions an element relative to its normal position. 2) Absolute: Positions an element relative to its nearest positioned ancestor. 3) Fixed: Positions an element relative to the viewport, regardless of scrolling. 4) Sticky: Toggles between relative and fixed based on the scroll position."
+    "topic": "Cpp",
+    "id": "cpp005",
+    "question": "What is object-oriented programming (OOP) in cpp?",
+    "answer": "Object-oriented programming (OOP) in cpp is a programming paradigm that uses objects and classes. The four main principles of OOP are encapsulation, inheritance, polymorphism, and abstraction."
   },
   {
-    "topic": "CSS",
-    "id": "css006",
-    "question": "What is the difference between 'em' and 'rem' units in CSS?",
-    "answer": "'em' is relative to the font-size of the parent element, while 'rem' is relative to the root element's font-size."
+    "topic": "Cpp",
+    "id": "cpp006",
+    "question": "What is a constructor in cpp?",
+    "answer": "A constructor in cpp is a special member function of a class that is executed when an object of that class is created. Its purpose is to initialize the object."
   },
   {
-    "topic": "CSS",
-    "id": "css007",
-    "question": "What are pseudo-classes in CSS?",
-    "answer": "Pseudo-classes define the special state of an element. Examples include :hover (when an element is hovered), :focus (when an element is focused), and :nth-child() (for selecting specific children)."
+    "topic": "Cpp",
+    "id": "cpp007",
+    "question": "What is the difference between a class and a struct in cpp?",
+    "answer": "In cpp, the primary difference between a class and a struct is that, by default, members of a class are private, while members of a struct are public. Both can have member functions, constructors, and destructors."
   },
   {
-    "topic": "CSS",
-    "id": "css008",
-    "question": "What are pseudo-elements in CSS?",
-    "answer": "Pseudo-elements allow styling specific parts of an element. Examples include ::before (inserts content before an element) and ::after (inserts content after an element)."
+    "topic": "Cpp",
+    "id": "cpp008",
+    "question": "What is polymorphism in cpp?",
+    "answer": "Polymorphism in cpp allows a function or method to behave differently depending on the type of the object it is acting upon. It is achieved through function overloading and virtual functions."
   },
   {
-    "topic": "CSS",
-    "id": "css009",
-    "question": "What are media queries in CSS?",
-    "answer": "Media queries are used for responsive design. They apply different styles based on device characteristics like screen width, height, resolution, or orientation."
+    "topic": "Cpp",
+    "id": "cpp009",
+    "question": "What is the purpose of the 'new' and 'delete' operators in cpp?",
+    "answer": "'new' is used to dynamically allocate memory on the heap, and 'delete' is used to free that memory. These operators are essential for managing dynamic memory in cpp."
   },
   {
-    "topic": "CSS",
-    "id": "css010",
-    "question": "What is Flexbox in CSS?",
-    "answer": "Flexbox (Flexible Box Layout) is a CSS layout model that provides a way to align and distribute items in a container. It is useful for creating responsive designs and managing space between items."
+    "topic": "Cpp",
+    "id": "cpp010",
+    "question": "What is the Standard Template Library (STL) in cpp?",
+    "answer": "The Standard Template Library (STL) in cpp is a collection of template classes and functions that implement commonly used algorithms and data structures, such as vectors, lists, queues, and maps."
   }
-  ]
+]
