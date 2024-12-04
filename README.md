@@ -10,7 +10,6 @@ Memora is an innovative flashcard-based application designed to enhance tech lea
 
 
 <h3>Technical Details</h3>
-<h4>Tech stack</h4>
 <ul>
 <li>Frontend: React.js, HTML, CSS</li>
 <li>Backend: Python (serverside operations)</li>
