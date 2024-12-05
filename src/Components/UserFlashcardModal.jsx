@@ -54,6 +54,12 @@ function UserFlashcardModal({
             maxHeight: "90%",
           }}
         >
+          <div
+            className="position-absolute top-0 start-0 m-2 bg-primary p-2 rounded-2 fw-bold"
+            style={{ color: "black", zIndex: 10 }}
+          >
+            {currentCardIndex + 1}
+          </div>
           <button
             type="button"
             className="btn-close position-absolute top-0 end-0 m-2"

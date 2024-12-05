@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CSS/FlashcardModal.css"; // Import external CSS for styles
 
 function FlashcardModal({
@@ -31,13 +31,18 @@ function FlashcardModal({
             maxHeight: "90%",
           }}
         >
+          <div
+            className="position-absolute top-0 start-0 m-2 bg-primary p-2 rounded-2 fw-bold"
+            style={{ color: "black", zIndex: 10 }}
+          >
+            {currentCardIndex + 1}
+          </div>
           <button
             type="button"
             className="btn-close position-absolute top-0 end-0 m-2"
             onClick={closeModal}
             style={{ color: "black", zIndex: 10 }}
           />
-
           {/* Flashcard Content with Flip Animation */}
           <div className={`flashcard ${isFlipped ? "flipped" : ""}`}>
             {/* Front of the card */}
@@ -74,7 +79,6 @@ function FlashcardModal({
               </p>
             </div>
           </div>
-
           {/* Previous and Next Buttons */}
           <div
             className="position-absolute start-0 d-flex align-items-center"

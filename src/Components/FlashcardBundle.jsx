@@ -28,6 +28,14 @@ const FlashcardBundle = ({ title, userEmail }) => {
   //Track which modal is active
   const [isUserFlashcardModal, setIsUserFlashcardModal] = useState(false);
   const [userFlashcards, setUserFlashcards] = useState([]); //State to manage user-created flashcards
+  const [countFlashcard, setCountFlashcard] = useState(0); //State to manage flashcard count
+
+  //Function to handle count of flashcards
+  const handleCountFlashcards = () => {
+    setCountFlashcard(flashcards.length);
+    console.log("Length of flashcards array: ", countFlashcard);
+  };
+  //API Calls
   useEffect(() => {
     const fetchFlashcards = async () => {
       try {
