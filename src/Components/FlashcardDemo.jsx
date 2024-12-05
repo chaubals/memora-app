@@ -1,4 +1,6 @@
+import React, { useState } from "react";
 import "./CSS/FlashcardDemo.css";
+import ProgressBar from "./ProgressBar";
 
 function FlashcardDemo({
   title,
@@ -8,9 +10,13 @@ function FlashcardDemo({
   onButtonClick,
   icon,
 }) {
+  //State to manage whether the card is a flashcard bundle or not (i.e. create flashcard option)
+  const [isFlashcardBundle, setIsFlashcardBundle] = useState(false); //initial value true
+
   return (
     <div>
       <div className="d-flex flex-column align-items-center mx-2">
+        {isFlashcardBundle && <ProgressBar />}
         <div
           className="shadow-lg p-3 card border-dark bg-info-subtle border-2 flashcard-demo fw-bold rounded-4"
           onClick={onCardClick}
